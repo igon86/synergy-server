@@ -1,0 +1,8 @@
+#!/bin/bash
+#aggiungere controllo parametri
+java jar ~/NetBeansProjects/SynergyServer/dist client/SynergyClient $1
+ret=$?
+sleep 2
+if [ $ret -eq 0 ]; then 
+    ./synergyc -f $1
+fi
