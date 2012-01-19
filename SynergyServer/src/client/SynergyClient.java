@@ -34,7 +34,7 @@ public class SynergyClient {
         Socket s = new Socket();
         System.out.println("Socket creata");
 
-        InetAddress server = InetAddress.getByName(args[1]);
+        InetAddress server = InetAddress.getByName(args[0]);
 
         SocketAddress sockaddr = new InetSocketAddress(server, port);
         try {
