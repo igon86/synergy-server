@@ -1,9 +1,10 @@
 #!/bin/bash
 killall synergys
-java SynergyServer
 
 cp client.txt oldclient.txt
 cp server.txt oldserver.txt
+
+java SynergyServer
 
 client=$(cat client.txt)
 server=$(cat server.txt)
