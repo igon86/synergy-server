@@ -1,5 +1,15 @@
 #!/bin/bash
 java SynergyServer
-stringa=$(cat out.txt)
-sed -i "s/dhcp-[0-9]*-[0-9]*-[0-9]*-[0-9]*.di.unipi.it/$stringa/g" synergy.conf
-synergys -f --config synergy.conf
+
+cp client.txt oldclient.txt
+cp server.txt oldserver.txt
+
+client=$(cat client.txt)
+server=$(cat server.txt)
+oldclient=$(cat oldclient.txt)
+oldserver=$(cat oldserver.txt)
+
+sed -i "s/$oldclient/$client/g" ./synergy.conf
+sed -i "s/$oldserver/$server/g" ./synergy.conf
+
+synergys -f --config ./synergy.conf

@@ -64,9 +64,15 @@ public class SynergyServer {
         // scrivo l'hostname del tipo su file
         try {
             // Create file
-            FileWriter fstream = new FileWriter("out.txt");
+            FileWriter fstream = new FileWriter("client.txt");
             BufferedWriter out = new BufferedWriter(fstream);
             out.write(ridden);
+
+            String local = java.net.InetAddress.getLocalHost().getCanonicalHostName();
+            FileWriter fstream2 = new FileWriter("server.txt");
+            BufferedWriter out2 = new BufferedWriter(fstream2);
+            out2.write(local);
+            
             //Close the output stream
             out.close();
         } catch (Exception e) {//Catch exception if any
